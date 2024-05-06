@@ -29,7 +29,7 @@ class User extends Sequelize.Model {
     }
 
     static associate(db){
-        db.User.hasMany(db.Post, { ForeignKey:'userID', SourceKey:'userID'})
+        db.User.hasMany(db.Post, { foreignKey:'userID', sourceKey:'userID'})
     }
 }
 

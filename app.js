@@ -1,12 +1,12 @@
-// const sync = require('./models/sync')
+// const sync = require('./models/sync')      //=>돌리고 나면 가입부터 다시..
 // sync();
 const express = require('express');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
-const { authPlugins } = require('mysql2');
+// const { authPlugins } = require('mysql2');
 dotenv.config();
 const port = process.env.PORT || 3000;
-const app = express();
+const app = express('express');
 const authRouter = require('./routes/authRouter');
 const postRouter = require('./routes/postRouter');
 const checkAuth = require('./routes/authorization');

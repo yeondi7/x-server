@@ -31,18 +31,21 @@ router.post('/sign-in', async (req, res)=>{
         attributes:['password'], //컬럼을 받는것
         where: {userID:userID} // {db의컬럼:전달되어온req.body}
     }
-    const result = await User.findAll(options);
+    const result = await User.findOne(options); //findAll
     // password, result.password
     if(result){
         const compared = await bcrypt.compare(password, result.password);
         if(compared) {
             const token = jwt.sign({uid:userID, rol: 'admin'}, secret)
-            res.json({success:true, token:token, message:"로그인에 성공했습니다."});
+            res.json({
+                success:true, 
+                token:token, 
+                message:"로그인에 성공했습니다."});
         } else {
-            res.json({success:false, message:"비밀번호가 맞지 않습니다."});
+            res.json({success:false, member: [], message:"비밀번호가 맞지 않습니다."});
         }
     } else {
-        res.json({success:false, message:"존재하지 않는 아이디 입니다."});
+        res.json({success:false, member: [], message:"존재하지 않는 아이디 입니다."});
     }
 });
 

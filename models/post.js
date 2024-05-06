@@ -25,7 +25,7 @@ class Post extends Sequelize.Model {
     }
 
     static associate(db){
-        db.Post.belongsTo(db.User, {foreignKey:'userID', SourceKey:'userID'});
+        db.Post.belongsTo(db.User, {foreignKey:'userID', sourceKey:'userID'});
     }
 }
 

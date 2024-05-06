@@ -1,7 +1,10 @@
-const { sequelize } = require("./index.js");
+const { sequelize } = require("./index"); // .js
 
 const sync = () => {
-    sequelize.sync({force:true, alter:true}).then(()=>console.log("데이버베이스 생성완료")).catch((error)=>{
+    sequelize
+        .sync({force: true, alter: true})
+        .then(()=>console.log("데이터베이스 생성완료"))
+        .catch((error)=>{
         console.log(error);
     });
 };

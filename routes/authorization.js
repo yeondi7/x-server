@@ -13,7 +13,7 @@ const isAuth = async (req, res, next) => {
         } else {
             // 미들웨어
             req.userID = decoded.uid;
-            req.rol = decoded.rol;
+            req.role = decoded.rol;
             console.log(req);
             // res.json({success: true, message: "Auth error"});
             next();
