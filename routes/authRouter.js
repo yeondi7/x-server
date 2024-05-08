@@ -9,12 +9,14 @@ const createHash = async (password, saltRound) => {
     let hashed = await bcrypt.hash(password, saltRound)
     console.log(hashed)
     return hashed;
-}
+};
 
-
+const upload = require('./uploadImage')
+router.post('/sign-up', upload.single('image'));
 
 router.post('/sign-up', async (req, res)=>{
     const member = req.body;
+    member.profile = req.filename;
     member.password = await createHash(member.password, 10);
     // member.password = newPassword;
     try{
