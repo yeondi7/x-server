@@ -11,9 +11,9 @@ router.post('/', async (req, res)=>{
     newPost.userID = req.userID;
     try{
         const result = await Post.create(newPost);
-        res.json({success:true, documents:result, message:"post 등록 성공"});
+        res.json({success:true, documents:[result], message:"post 등록 성공"});
     } catch (err) {
-        res.json({success:false, documents:[], message:err.message});
+        res.json({success:false, documents:[], message: err });
     }
     
 });

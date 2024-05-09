@@ -18,7 +18,7 @@ const isAuth = async (req, res, next) => {
             // res.json({success: true, message: "Auth error"});
             next();
         }
-    })
+    });
 };
 
 module.exports = isAuth;

@@ -13,10 +13,10 @@ class Post extends Sequelize.Model {
           type: Sequelize.TEXT,
           allowNull: false
         }
-      }, { // 2번째 매개변수: 테이블 자체 설정
-        sequelize, // 첫번째 매개변수로 받은 시퀄라이즈 객체
+      }, { // 2번째 매개변수: 테이블 설정
+        sequelize, // 첫번째 매개변수로 받은 시퀄라이즈 객체, 데이터베이스와의 연결
         timestamps: true, // createdAt, updatedAt 컬럼 생성
-        paranoid: true, // deletedAt 컬럼 생성
+        paranoid: true, // deletedAt 컬럼 생성(복구, 추적할 때)
         modelName: 'Post', // 모델 이름
         tableName: 'post' // 실제 테이블 이름
       }
